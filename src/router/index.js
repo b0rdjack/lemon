@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Login from "../views/Login.vue";
 import store from "../store";
+import Signup from "../views/Signup.vue";
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,14 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login,
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/signup",
+    name: "Signup",
+    component: Signup,
     meta: {
       requiresAuth: false,
     },
