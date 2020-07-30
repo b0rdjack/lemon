@@ -2,9 +2,9 @@
   <b-row class="vh-100" align-v="center">
     <b-col></b-col>
     <b-col>
-      <b-card class="text-center">
+      <b-card class="login-card">
         <b-form @submit="onSubmit">
-          <b-form-group id="email" label="Adresse E-mail" label-for="email-input">
+          <b-form-group id="email" label="E-mail" label-for="email-input">
             <b-form-input
               id="email-input"
               v-model="form.email"
@@ -16,7 +16,16 @@
           <b-form-group id="password" label="Mot de passe" label-for="password-input">
             <b-form-input id="password-input" v-model="form.password" type="password" required></b-form-input>
           </b-form-group>
-          <b-button type="submit" variant="primary" :disabled="loading">Connexion</b-button>
+          <b-row class="text-center">
+            <b-col>
+              <b-button type="submit" variant="primary" :disabled="loading">Connexion</b-button>
+            </b-col>
+          </b-row>
+          <b-row class="text-center link">
+            <b-col>
+              <router-link to="Signup">Pas de compte ? Inscrivez-vous !</router-link>
+            </b-col>
+          </b-row>
         </b-form>
         <b-spinner variant="primary" v-if="loading" class="spinner"></b-spinner>
       </b-card>
@@ -74,6 +83,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>
