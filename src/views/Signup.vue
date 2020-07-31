@@ -4,19 +4,23 @@
     <b-col>
       <PaymentForm :payment.sync="payment" v-if="first_step" />
       <SignupForm :form.sync="form" v-else />
-      <b-row>
+      <b-row class="text-center buttons">
         <b-col>
           <div v-if="first_step">
-            <b-button @click="onSubmit" variant="info" :disabled="loading">S'inscrire</b-button>
-            <b-button @click="previousStep" variant="info" :disabled="loading">Précédent</b-button>
+            <b-button @click="previousStep" class="previous-btn" :disabled="loading">
+              <font-awesome-icon :icon="['fas', 'angle-double-left']" />Précédent
+            </b-button>
+            <b-button @click="onSubmit" class="signup-btn" :disabled="loading">S'inscrire</b-button>
           </div>
-
-          <b-button @click="nextStep" variant="info" v-else>Suivant</b-button>
-          <b-button
-            variant="outline-primary"
-            class="signup_button"
-            href="/login"
-          >Déjà un compte ? Se connecter</b-button>
+          <b-button @click="nextStep" variant="info" v-else>
+            Suivant
+            <font-awesome-icon :icon="['fas', 'angle-double-right']" />
+          </b-button>
+        </b-col>
+      </b-row>
+      <b-row class="text-center buttons" v-if="!first_step">
+        <b-col>
+          <router-link to="Login">Déjà un compte ? Connectez vous !</router-link>
         </b-col>
       </b-row>
     </b-col>
@@ -39,6 +43,7 @@ export default {
         firstname: "",
         email: "",
         password: "",
+        confirm_password:""
       },
       payment: {
         card_number: "",

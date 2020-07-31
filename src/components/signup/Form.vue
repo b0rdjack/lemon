@@ -5,7 +5,7 @@
         id="lastname"
         v-model="form.lastname"
         required
-        placeholder="Ex: Smith"
+        placeholder="Ex: Dupont"
         @input="$emit('update:form', form)"
       ></b-form-input>
     </b-form-group>
@@ -14,11 +14,11 @@
         id="firstname"
         v-model="form.firstname"
         required
-        placeholder="Ex: John"
+        placeholder="Ex: Pierre"
         @input="$emit('update:form', form)"
       ></b-form-input>
     </b-form-group>
-    <b-form-group id="email-group" label="Adresse E-mail" label-for="email">
+    <b-form-group id="email-group" label="E-mail" label-for="email">
       <b-form-input
         id="email"
         v-model="form.email"
@@ -37,6 +37,19 @@
         @input="$emit('update:form', form)"
       ></b-form-input>
     </b-form-group>
+    <b-form-group
+      id="confirm-password-group"
+      label="Confirmation du mot de passe"
+      label-for="confirm_password"
+    >
+      <b-form-input
+        id="confirm_password"
+        v-model="form.confirm_password"
+        type="password"
+        required
+        @input="$emit('update:form', form)"
+      ></b-form-input>
+    </b-form-group>
   </b-card>
 </template>
 
@@ -49,6 +62,7 @@ export default {
       firstname: "",
       email: "",
       password: "",
+      confirm_password: "",
     },
   },
 };

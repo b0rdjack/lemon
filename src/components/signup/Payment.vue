@@ -1,12 +1,12 @@
 <template>
   <div>
-    <b-card title="Informations de paiements">
+    <b-card title="Informations de paiements" class="payment-card">
       <b-card-text>
-        <b>Plan Basic</b>
+        Plan Basic
         <br />
-        <b>14,99€</b>/mois
+        <b>14,99€</b> /mois
         <br />
-        <br />Annulez à tout moment.
+        <br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non urna sed libero ornare hendrerit. Cras id risus massa. Cras velit libero, tincidunt facilisis quam ac, hendrerit ornare ex.
         <br />
         <br />Nous utilisons le système de paiement sécurisé et chiffré
         <a
@@ -16,7 +16,7 @@
       </b-card-text>
     </b-card>
     <br />
-    <b-card class="signup-card payment-card">
+    <b-card class="payment-card">
       <b-form-group id="card_number-group" label="Numéro de carte" label-for="card_number">
         <b-form-input
           id="card_number"

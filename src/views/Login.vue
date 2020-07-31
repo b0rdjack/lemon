@@ -23,7 +23,7 @@
           </b-row>
           <b-row class="text-center link">
             <b-col>
-              <router-link to="Signup">Pas de compte ? Inscrivez-vous !</router-link>
+              <router-link to="Signup">Pas de compte ? Inscrivez vous !</router-link>
             </b-col>
           </b-row>
         </b-form>
