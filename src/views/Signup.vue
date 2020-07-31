@@ -12,7 +12,7 @@
             </b-button>
             <b-button @click="onSubmit" class="signup-btn" :disabled="loading">S'inscrire</b-button>
           </div>
-          <b-button @click="nextStep" variant="info" v-else>
+          <b-button @click="nextStep" :disabled="form.valid" v-else>
             Suivant
             <font-awesome-icon :icon="['fas', 'angle-double-right']" />
           </b-button>
@@ -43,7 +43,8 @@ export default {
         firstname: "",
         email: "",
         password: "",
-        confirm_password:""
+        confirm_password: "",
+        valid: true,
       },
       payment: {
         card_number: "",
