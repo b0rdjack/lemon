@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Login from "../views/Login.vue";
-import store from "../store";
+import PasswordReset from "../views/PasswordReset.vue";
 import Signup from "../views/Signup.vue";
 
 Vue.use(VueRouter);
@@ -25,6 +25,14 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login,
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/password_reset",
+    name: "PasswordReset",
+    component: PasswordReset,
     meta: {
       requiresAuth: false,
     },
