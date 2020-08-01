@@ -89,13 +89,12 @@ export default {
   watch: {
     form: {
       handler(val) {
-        this.form.valid = !(
+        this.form.valid =
           this.validateLastName &&
           this.validateFirstName &&
           this.validateEmail &&
           this.validatePassword &&
-          this.validateConfirmPassword
-        );
+          this.validateConfirmPassword;
       },
       deep: true,
     },

@@ -10,9 +10,13 @@
             <b-button @click="previousStep" class="previous-btn" :disabled="loading">
               <font-awesome-icon :icon="['fas', 'angle-double-left']" />Précédent
             </b-button>
-            <b-button @click="onSubmit" class="signup-btn" :disabled="loading">S'inscrire</b-button>
+            <b-button
+              @click="onSubmit"
+              class="signup-btn"
+              :disabled="loading || !payment.valid"
+            >S'inscrire</b-button>
           </div>
-          <b-button @click="nextStep" :disabled="form.valid" v-else>
+          <b-button @click="nextStep" :disabled="!form.valid" v-else>
             Suivant
             <font-awesome-icon :icon="['fas', 'angle-double-right']" />
           </b-button>
@@ -44,13 +48,14 @@ export default {
         email: "",
         password: "",
         confirm_password: "",
-        valid: true,
+        valid: false,
       },
       payment: {
         card_number: "",
         exp_month: "",
         exp_year: "",
         cvc: "",
+        valid: false,
       },
       loading: false,
       first_step: false,
