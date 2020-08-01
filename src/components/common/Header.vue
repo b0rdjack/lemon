@@ -75,6 +75,7 @@ export default {
         })
         .catch((error) => {
           console.error(error);
+          await localStorage.removeItem("token");
           this.loading = false;
           this.$router.replace({ name: "/login" });
         });
