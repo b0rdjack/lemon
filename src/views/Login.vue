@@ -9,12 +9,21 @@
               id="email-input"
               v-model="form.email"
               type="email"
+              :state="validateEmail"
               required
               placeholder="Ex: pierre.dupont@outlook.com"
             ></b-form-input>
+            <b-form-invalid-feedback :state="validateEmail">Votre e-mail doit être valide.</b-form-invalid-feedback>
           </b-form-group>
           <b-form-group id="password" label="Mot de passe" label-for="password-input">
-            <b-form-input id="password-input" v-model="form.password" type="password" required></b-form-input>
+            <b-form-input
+              id="password-input"
+              v-model="form.password"
+              type="password"
+              :state="validatePassword"
+              required
+            ></b-form-input>
+            <b-form-invalid-feedback :state="validatePassword">Votre mot de passe doit être valide.</b-form-invalid-feedback>
           </b-form-group>
           <b-row class="text-center">
             <b-col>
@@ -57,6 +66,16 @@ export default {
       },
       loading: false,
     };
+  },
+  computed: {
+    validateEmail() {
+      let regex = /\S+@\S+\.\S+/;
+      return regex.test(this.form.email);
+    },
+    validatePassword() {
+      let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,32}$/;
+      return regex.test(this.form.password);
+    },
   },
   methods: {
     async onSubmit(e) {
