@@ -10,7 +10,6 @@ Vue.use(VueRouter);
 
 function isAuthenticated() {
   const _token = localStorage.getItem("token");
-  console.log(_token);
   return _token === null ? false : true;
 }
 

@@ -98,7 +98,6 @@ export default {
         .then(async (response) => {
           this.loading = false;
           if (response.error) {
-            console.log(response);
             alert("Les informations saisies ne sont pas valides.");
           } else {
             alert(response.messages[0]);
