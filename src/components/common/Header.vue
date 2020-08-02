@@ -73,7 +73,7 @@ export default {
           this.loading = false;
           this.$router.replace({ path: "/login" });
         })
-        .catch((error) => {
+        .catch(async (error) => {
           console.error(error);
           await localStorage.removeItem("token");
           this.loading = false;
