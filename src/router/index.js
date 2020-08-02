@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import About from "../views/About.vue";
 import Login from "../views/Login.vue";
 import PasswordReset from "../views/PasswordReset.vue";
 import Signup from "../views/Signup.vue";
@@ -48,14 +47,6 @@ const routes = [
     path: "/home",
     name: "Home",
     component: Home,
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: About,
     meta: {
       requiresAuth: true,
     },
