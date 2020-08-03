@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import ActivityNew from "../views/Activity/ActivityNew.vue";
+import ActivityUpdate from "../views/Activity/ActivityUpdate.vue";
 import Activity from "../views/Activity/Activity.vue";
 import Account from "../views/Account.vue";
 import Login from "../views/Login.vue";
@@ -66,6 +67,14 @@ const routes = [
     path: "/activity/:id",
     name: "Activity",
     component: Activity,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/activity/:id/edit",
+    name: "ActivityUpdate",
+    component: ActivityUpdate,
     meta: {
       requiresAuth: true,
     },

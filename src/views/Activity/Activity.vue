@@ -59,7 +59,11 @@
     </b-row>
     <b-row class="mt-5 text-center buttons" v-if="activity">
       <b-col>
-        <b-button size="lg" v-if='activity.state.label === "En attente"' @click="updateActivity">Modifier l'activité</b-button>
+        <b-button
+          size="lg"
+          v-if='activity.state.label === "Refusé"'
+          @click="updateActivity"
+        >Modifier l'activité</b-button>
       </b-col>
     </b-row>
   </div>
@@ -96,17 +100,16 @@ export default {
               "Oups ! Une erreur est survenue, veuillez réessayer plus tard"
             );
           } else {
-            console.log(response.activity);
             this.activity = response.activity;
             switch (this.activity.state.label) {
-              case 'Accepted':
-                this.activity.state.label = "Accepté"
+              case "Accepted":
+                this.activity.state.label = "Accepté";
                 break;
-              case 'Denied':
-                this.activity.state.label = "Refusé"
+              case "Denied":
+                this.activity.state.label = "Refusé";
                 break;
-              case 'Pending':
-                this.activity.state.label = "En attente"
+              case "Pending":
+                this.activity.state.label = "En attente";
                 break;
             }
           }
@@ -120,7 +123,12 @@ export default {
       let date = new Date(null);
       date.setSeconds(duration);
       return date.toISOString().substr(11, 8);
-    }
+    },
+    updateActivity() {
+      this.$router.replace({
+        path: "/activity/" + this.$route.params.id + "/edit",
+      });
+    },
   },
   data() {
     return {
