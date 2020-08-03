@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import ActivityNew from "../views/Activity/ActivityNew.vue";
 import Account from "../views/Account.vue";
 import Login from "../views/Login.vue";
 import PasswordReset from "../views/PasswordReset.vue";
@@ -48,6 +49,14 @@ const routes = [
     path: "/home",
     name: "Home",
     component: Home,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/activity/new",
+    name: "ActivityNew",
+    component: ActivityNew,
     meta: {
       requiresAuth: true,
     },
