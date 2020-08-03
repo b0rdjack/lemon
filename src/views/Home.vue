@@ -47,13 +47,29 @@ export default {
         .then((response) => response.json())
         .then(async (response) => {
           this.loading = false;
-          let tmp_activities = [];
           this.activities = response.activities;
+          this.activities.forEach((activity) => {
+            switch (activity.state.label) {
+              case "Accepted":
+                activity.state.label = "Accepté";
+                break;
+              case "Denied":
+                activity.state.label = "Refusé";
+                break;
+              case "Pending":
+                activity.state.label = "En attente";
+                break;
+            }
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+          this.loading = false;
         });
     },
     showActivity(items) {
       this.$router.replace({
-        path: "/activity/" + items[0].id
+        path: "/activity/" + items[0].id,
       });
     },
   },
@@ -86,6 +102,11 @@ export default {
         {
           key: "phone_number",
           label: "Téléphone",
+          sortable: false,
+        },
+        {
+          key: "state.label",
+          label: "État",
           sortable: false,
         },
       ],
