@@ -52,7 +52,9 @@ export default {
         });
     },
     showActivity(items) {
-      console.log(items);
+      this.$router.replace({
+        path: "/activity/" + items[0].id
+      });
     },
   },
   data() {
