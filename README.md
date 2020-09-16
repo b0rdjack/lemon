@@ -69,14 +69,14 @@ npm install vue
 
 ## Install 📥
 
-    $ git clone https://github.com/AyazBulls/lemon.git
+    $ git clone https://github.com/b0rdjack/lemon.git
     $ cd lemon
     $ npm install
 
 ## Configure app 🔧
 
 Open `config.js` then edit it with your settings. You will need:
-- API_URL: URL of the [API](https://github.com/AyazBulls/api-mango.git)
+- API_URL: URL of the [API](https://github.com/b0rdjack/api-mango.git)
 
 ## Running the project 🚀
 
